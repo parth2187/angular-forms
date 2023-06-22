@@ -1,0 +1,78 @@
+<div class="container-fluid d-flex row justify-content-center">
+  <h2 class="text-center mt-5">Customer Form</h2>
+
+  <div class="card w-50 shadow-sm p-3 mb-5 bg-body rounded">
+    <div class="card-body">
+      <form #customerForm="ngForm" (ngSubmit)="submitForm(customerForm)">
+        <div class="mb-3">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            class="form-control"
+            required
+            [(ngModel)]="customer.name"
+            #name="ngModel"
+            placeholder="Your name"
+          />
+          <small class="text-danger" *ngIf="name.invalid && name.touched"
+            >Name is required</small
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            email
+            class="form-control"
+            required
+            [(ngModel)]="customer.email"
+            #email="ngModel"
+            placeholder="Your email address"
+          />
+          <small class="text-danger" *ngIf="email.invalid && email.touched"
+            >Email is required</small
+          >
+        </div>
+
+        <div class="mb-3">
+          <label for="phone">Phone:</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            class="form-control"
+            required
+            [(ngModel)]="customer.phone"
+            #phone="ngModel"
+            pattern="^\d{10}$"
+            placeholder="Your phone number"
+          />
+          <small class="text-danger" *ngIf="phone.invalid && phone.touched"
+            >Phone number is required</small
+          >
+        </div>
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]="customerForm.invalid">
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<hr />
+<div class="container text-center">
+  <h2 *ngIf="isSuccess">Customer Details</h2>
+  <p *ngIf="isSuccess">Name: {{ customerForm.value.name }}</p>
+  <p *ngIf="isSuccess">Email: {{ customerForm.value.email }}</p>
+  <p *ngIf="isSuccess">Phone: {{ customerForm.value.phone }}</p>
+  <button *ngIf="isSuccess" class="btn btn-primary" (click)="(clearFormData)">Back</button>
+</div>
