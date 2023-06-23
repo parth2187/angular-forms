@@ -12,14 +12,15 @@ import { AboutPageComponent } from './about-page/about-page.component';
 import { SignupComponent } from './signup/signup.component';
 import { AuthService } from './auth/auth.service';
 import { authGuard } from './auth/auth.guard';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 const routes: Routes = [
-  {path:'', redirectTo:"login", pathMatch:"full"},
-  {path: 'home', component: FormPageComponent, canActivate:[authGuard]},
+  {path:'', redirectTo:"auth", pathMatch:"full"},
+  {path: 'home', component: LandingPageComponent},
+  {path: 'form', component: FormPageComponent, canActivate:[authGuard]},
   {path: 'auth', component: AuthPageComponent},
   {path: 'about', component: AboutPageComponent},
   {path: 'signup', component: SignupComponent}
-
 ]
 
 @NgModule({
@@ -29,7 +30,8 @@ const routes: Routes = [
     FormPageComponent,
     AuthPageComponent,
     AboutPageComponent,
-    SignupComponent
+    SignupComponent,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,
