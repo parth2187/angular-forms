@@ -30,7 +30,7 @@ export class AuthPageComponent {
         });
         if (user) {
           this.authService.setLoggedIn(true);
-          this.router.navigate(['/home']);
+          this.router.navigate(['/form']);
           this.isSuccess = true;
         } else {
           this.authService.setLoggedIn(false);
@@ -45,7 +45,7 @@ export class AuthPageComponent {
       }
     );
       if(this.authService.isLoggedIn){
-        this.router.navigate(['/home']);
+        this.router.navigate(['/form']);
       }
   }
 }
