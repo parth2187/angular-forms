@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { User } from '../user';
 import { LocalStorageService } from '../shared/local-storage.service';
+import { formatCurrency } from '@angular/common';
 
 @Component({
   selector: 'app-form-page',
@@ -23,9 +24,9 @@ constructor(private localStorageService: LocalStorageService) { }
 
 submitForm(surveyForm: any) {
     if (surveyForm.valid) {
+        FormData = surveyForm.value;
         console.log('Form Submitted', surveyForm.value);
-        const formData = JSON.stringify(surveyForm.value);
-        this.localStorageService.setItem('formData', formData);
+        this.localStorageService.put('formData', FormData);
         this.isSuccess = true;
         surveyForm.reset();
     }
