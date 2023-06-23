@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UserData } from '../user-data';
+import { UserData } from '../shared/user-data';
 import { AuthService } from '../auth/auth.service';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';

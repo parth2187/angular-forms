@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserData } from '../user-data';
+import { UserData } from '../shared/user-data';
 import { NgForm } from '@angular/forms';
-import { DataService } from '../data.service';
+import { DataService } from '../shared/data.service';
 import { Router } from '@angular/router';
 
 
