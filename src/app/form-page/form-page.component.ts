@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { User } from '../user';
-import { LocalStorageService } from '../local-storage.service';
+import { LocalStorageService } from '../shared/local-storage.service';
 
 @Component({
   selector: 'app-form-page',
