@@ -9,27 +9,26 @@ import { LocalStorageService } from '../local-storage.service';
 })
 export class FormPageComponent {
   isSuccess = false;
-  customer: User = {
+  survey: User = {
     name: '',
     email: '',
-    phone: ''
+    phone: '',
+    feedback: '',
+    gender: '',
+    age: null,
+    
 };
 
 constructor(private localStorageService: LocalStorageService) { }
 
-saveCustomer(formData: any) : void {
-  const jsonData = JSON.stringify(this.customer);
-    this.localStorageService.put(formData, jsonData);
-}
-submitForm(customerForm: any) {
-    if (customerForm.valid) {
-        console.log('Form Submitted', customerForm.value);
+submitForm(surveyForm: any) {
+    if (surveyForm.valid) {
+        console.log('Form Submitted', surveyForm.value);
+        const formData = JSON.stringify(surveyForm.value);
+        this.localStorageService.setItem('formData', formData);
+        this.isSuccess = true;
+        surveyForm.reset();
     }
-    this.isSuccess = true;
-    this.saveCustomer(customerForm);
-  }
+ }
 
-  clearFormData(form: any) {
-    this.localStorageService.clear(form);
-  }
 }
