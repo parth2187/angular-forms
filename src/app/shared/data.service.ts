@@ -11,7 +11,7 @@ export class DataService {
   }
 
   postData(formData: any): Observable<any>{
-    const url = 'http://localhost:3000/signup';
+    const url = 'https://json-servr.vercel.app/signup';
     return this.http.post<any>(url, formData);
   }
 }
