@@ -7,6 +7,7 @@
 /build/
 .DS_Store
 package-lock.json
-/frontend/src/.angular/
+/frontend/.angular/
 
 /// Angular Files ///
+/.angular/cached/
