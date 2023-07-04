@@ -27,6 +27,7 @@ export class SignupComponent {
         // Handle successful response
         console.log(response);
         this.isSuccess = true;
+        console.log(this.isSuccess);
         form.reset();
         this.router.navigate(['/auth']);
       },

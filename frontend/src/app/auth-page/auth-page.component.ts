@@ -23,7 +23,7 @@ export class AuthPageComponent {
   constructor(private authService:AuthService, private http:HttpClient, private router:Router) { }
 
   onSubmit(formData: NgForm): void {
-    this.http.get<any>('http://localhost:3000/signup').subscribe( 
+    this.http.get<any>('https://json-servr.vercel.app/signup').subscribe( 
       response => {
         const user = response.find((user: { email: string; password: string; }) => {  
           return user.email === this.user.email && user.password === this.user.password;
