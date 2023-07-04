@@ -1,0 +1,12 @@
+
+### VS Code ###
+.vscode/
+
+### Build File ###
+/node_modules/
+/build/
+.DS_Store
+package-lock.json
+/frontend/src/.angular/
+
+/// Angular Files ///
